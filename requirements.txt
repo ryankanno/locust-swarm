@@ -1,4 +1,1 @@
-locustio
-pyzmq
-boto
-fabric
+-e git+https://github.com/locustio/locust.git#egg=locust pyzmq boto fabric
