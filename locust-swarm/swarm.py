@@ -66,13 +66,23 @@ def create_slave(ami_id, name='Locust-Slave'):
     return _run_instances(ami_id, {'Name': name})
 
 
+@roles('master')
+def start_master():
+    pass
+
+
+@roles('slave')
+def start_slave():
+    pass
+
+    
 @task
 def update():
     sudo('apt-get update && apt-get upgrade -y')
     sudo('apt install python') 
     sudo('apt install python-pip python-dev build-essential')
     sudo('pip install --upgrade pip')
-    
+    put('./sample-locust.py', '/tmp/sample-locust.py')
 
 if __name__ == '__main__':
     master = create_master(AMI_ID)
