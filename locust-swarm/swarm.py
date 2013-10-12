@@ -13,7 +13,7 @@ from multiprocessing import Pool
 from time import sleep
 
 
-AMI_ID = "ami-ad3660c4"
+AMI_ID = config.get('aws', 'ami_id')
 AWS_REGION = config.get('aws', 'aws_region')
 AMI_INSTANCE_TYPE = config.get('aws', 'ami_instance_type')
 AMI_ACCESS_KEY_ID = config.get('aws', 'access_key_id')
