@@ -72,11 +72,10 @@ def _get_instances_by_role(config, role_name):
         aws_secret_access_key, {custom_tag: role_name})
 
 
-def _get_instances(
-    aws_region,
-    aws_access_key_id,
-    aws_secret_access_key,
-    filters):
+def _get_instances(aws_region,
+                   aws_access_key_id,
+                   aws_secret_access_key,
+                   filters):
 
     conn = connect_to_region(
         aws_region,
@@ -114,15 +113,14 @@ def _run_instances_from_config(config, role_name):
         security_group_ids)
 
 
-def _run_instances(
-    aws_region,
-    aws_access_key_id,
-    aws_secret_access_key,
-    ami_id,
-    ami_instance_type,
-    aws_key_name,
-    tag_dict,
-    security_group_ids):
+def _run_instances(aws_region,
+                   aws_access_key_id,
+                   aws_secret_access_key,
+                   ami_id,
+                   ami_instance_type,
+                   aws_key_name,
+                   tag_dict,
+                   security_group_ids):
 
     conn = connect_to_region(
         aws_region,
@@ -156,13 +154,12 @@ def _wait_for_instance_state(instance, state, num_secs_to_sleep=20,
     raise Exception
 
 
-def _get_or_create_security_group_from_role(
-    aws_region,
-    aws_access_key_id,
-    aws_secret_access_key,
-    role_name):
+def _get_or_create_security_group_from_role(aws_region,
+                                            aws_access_key_id,
+                                            aws_secret_access_key,
+                                            role_name):
 
-    authorization_tuples=[('tcp', 22, 22, '0.0.0.0/0')]
+    authorization_tuples = [('tcp', 22, 22, '0.0.0.0/0')]
 
     if role_name == DEFAULT_MASTER_ROLE_NAME:
         authorization_tuples.append(('tcp', 8089, 8089, '0.0.0.0/0'))
@@ -177,12 +174,12 @@ def _get_or_create_security_group_from_role(
 
 
 def _get_or_create_security_group(
-    aws_region,
-    aws_access_key_id,
-    aws_secret_access_key,
-    security_group_name,
-    security_group_description,
-    authorization_tuples=[('tcp', 22, 22, '0.0.0.0/0')]):
+        aws_region,
+        aws_access_key_id,
+        aws_secret_access_key,
+        security_group_name,
+        security_group_description,
+        authorization_tuples=[('tcp', 22, 22, '0.0.0.0/0')]):
 
     conn = connect_to_region(
         aws_region,
@@ -191,8 +188,10 @@ def _get_or_create_security_group(
 
     group = _get_security_group(conn, security_group_name)
     if not group:
-        group = _create_security_group(conn, security_group_name,
-                security_group_description, authorization_tuples)
+        group = _create_security_group(conn,
+                                       security_group_name,
+                                       security_group_description,
+                                       authorization_tuples)
     return group
 
 
@@ -203,11 +202,10 @@ def _get_security_group(conn, security_group_name):
         return None
 
 
-def _create_security_group(
-    conn,
-    group_name,
-    group_description,
-    authorization_tuples=[]):
+def _create_security_group(conn,
+                           group_name,
+                           group_description,
+                           authorization_tuples=[]):
 
     group = conn.create_security_group(group_name, group_description)
     for auth_tuple in authorization_tuples:

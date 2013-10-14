@@ -87,10 +87,10 @@ def swarm_up_slaves(args):
 
     if not master_ip_address:
         raise Exception("Unable to start slaves without a master. Please "
-            "bring up a master first.")
+                        "bring up a master first.")
 
     for i in xrange(args.num_slaves):
-        pool.apply_async(create_slave,(cfg,))
+        pool.apply_async(create_slave, (cfg,))
 
     pool.close()
     pool.join()
@@ -120,7 +120,8 @@ def _bootstrap_master(bootstrap_dir_path):
     _bootstrap(abs_bootstrap_dir_path)
 
     dir_name = os.path.basename(abs_bootstrap_dir_path)
-    run("nohup locust -f /tmp/locust/{0}/locustfile.py --master >& /dev/null < /dev/null &".format(dir_name), pty=False)
+    run("nohup locust -f /tmp/locust/{0}/locustfile.py \
+        --master >& /dev/null < /dev/null &".format(dir_name), pty=False)
 
 
 @roles('slave')
@@ -129,7 +130,9 @@ def _bootstrap_slave(bootstrap_dir_path, master_ip_address):
     _bootstrap(abs_bootstrap_dir_path)
 
     dir_name = os.path.basename(abs_bootstrap_dir_path)
-    run("nohup locust -f /tmp/locust/{0}/locustfile.py --slave --master-host={1} >& /dev/null < /dev/null &".format(dir_name, master_ip_address), pty=False)
+    run("nohup locust -f /tmp/locust/{0}/locustfile.py --slave \
+        --master-host={1} >& /dev/null < /dev/null &".
+        format(dir_name, master_ip_address), pty=False)
 
 
 def _bootstrap(abs_bootstrap_dir_path):
@@ -171,6 +174,7 @@ def _validate_dirs(args):
                 return
 
     raise Exception("Unable to validate bootstrap.sh and locustfile.py are "
-        "present in the directory {0}".format(bootstrap_dir_path))
+                    "present in the directory {0}".format(bootstrap_dir_path))
+
 
 # vim: filetype=python
