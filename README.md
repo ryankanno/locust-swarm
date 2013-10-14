@@ -5,10 +5,10 @@ Forget about [dragons](https://en.wikipedia.org/wiki/Here_be_dragons), here be l
 These scripts brings up a [locust](https://github.com/locustio/locust) 
 master/slave cluster in EC2. 
 
-&lt;disclaimer%gt;
-As a note, you'll be charged $$ using this. Since you can potentially bring up 
+&lt;disclaimer&gt;
+As a note, you'll be charged **$$** using this. Since you can potentially bring up 
 many EC2 nodes, if you don't understand what you're doing, don't run these scripts.
-&lt;/disclaimer%gt;
+&lt;/disclaimer&gt;
 
 Scripts perform the following using [boto](https://github.com/boto/boto) + 
 [fabric](https://github.com/fabric/fabric):
