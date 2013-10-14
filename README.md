@@ -3,7 +3,12 @@
 Forget about [dragons](https://en.wikipedia.org/wiki/Here_be_dragons), here be locusts.
 
 These scripts brings up a [locust](https://github.com/locustio/locust) 
-master/slave cluster in EC2.
+master/slave cluster in EC2. 
+
+&lt;disclaimer%gt;
+As a note, you'll be charged $$ using this. Since you can potentially bring up 
+many EC2 nodes, if you don't understand what you're doing, don't run these scripts.
+&lt;/disclaimer%gt;
 
 Scripts perform the following using [boto](https://github.com/boto/boto) + 
 [fabric](https://github.com/fabric/fabric):
@@ -47,12 +52,18 @@ To create a locust master, run the following:
 
 `python locust-swarm/swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/`
 
+ * -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
+ * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master))
+
 ## create slave(s)
 
 To create a locust slave, run the following:
 
 `python locust-swarm/swarm.py up slaves -c ./locust-swarm.cfg -d ./example/bootstrap-slave/ -s 5`
 
+ * -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
+ * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave))
+ * -s is the number of slaves you want to create
 
 ## go to master server to start load test
 
