@@ -1,0 +1,2 @@
+-e git+https://github.com/locustio/locust.git#egg=locust 
+pyzmq 
