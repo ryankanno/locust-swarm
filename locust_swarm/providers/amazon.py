@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from boto.ec2 import connect_to_region
-from config import DEFAULT_MASTER_ROLE_NAME
-from config import DEFAULT_SLAVE_ROLE_NAME
-from config import DEFAULT_CUSTOM_TAG_NAME
+from ..config import DEFAULT_MASTER_ROLE_NAME
+from ..config import DEFAULT_SLAVE_ROLE_NAME
+from ..config import DEFAULT_CUSTOM_TAG_NAME
 
 from time import sleep
 

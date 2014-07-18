@@ -6,6 +6,7 @@ include requirements-tox.txt
 include requirements.txt
 include setup.cfg
 include setup.py
+include locust-swarm.example.cfg
 recursive-include locust_swarm *.py
 recursive-include tests *.py
 prune *.pyc
