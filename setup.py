@@ -76,11 +76,7 @@ setup(
     packages=packages,
     package_data={'': ['LICENSE']},
     package_dir={'locust_swarm': 'locust_swarm'},
-    entry_points={
-        'console_scripts': [
-            'locust-swarm = locust_swarm.swarm:main',
-        ]
-    },
+    scripts=['bin/locust-swarm.py'],
     install_requires=requires,
     license=meta['license'],
     tests_require=tests_require,

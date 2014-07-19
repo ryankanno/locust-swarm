@@ -6,16 +6,16 @@ import logging
 import sys
 import traceback
 
-from .config import DEFAULT_CFG_FILEPATH
-from .config import DEFAULT_NUM_SLAVES
-from .config import DEFAULT_MASTER_BOOTSTRAP_DIR
-from .config import DEFAULT_SLAVE_BOOTSTRAP_DIR
-from .runner import swarm_down
-from .runner import swarm_down_master
-from .runner import swarm_down_slaves
-from .runner import swarm_up
-from .runner import swarm_up_master
-from .runner import swarm_up_slaves
+from locust_swarm.config import DEFAULT_CFG_FILEPATH
+from locust_swarm.config import DEFAULT_NUM_SLAVES
+from locust_swarm.config import DEFAULT_MASTER_BOOTSTRAP_DIR
+from locust_swarm.config import DEFAULT_SLAVE_BOOTSTRAP_DIR
+from locust_swarm.runner import swarm_down
+from locust_swarm.runner import swarm_down_master
+from locust_swarm.runner import swarm_down_slaves
+from locust_swarm.runner import swarm_up
+from locust_swarm.runner import swarm_up_master
+from locust_swarm.runner import swarm_up_slaves
 
 
 __all__ = ['main']

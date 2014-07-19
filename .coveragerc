@@ -1,0 +1,7 @@
+[run]
+
+omit =
+    */python?.?/*
+    */site-packages/nose/*
+    */tests/*
+    locust_swarm/__init__.py
