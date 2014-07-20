@@ -1,4 +1,11 @@
-# locust-swarm
+locust-swarm
+============
+
+.. image:: https://travis-ci.org/ryankanno/locust-swarm.png?branch=master
+   :target: https://travis-ci.org/ryankanno/locust-swarm
+
+.. image:: https://coveralls.io/repos/ryankanno/locust-swarm/badge.png
+   :target: https://coveralls.io/r/ryankanno/locust-swarm
 
 Forget about [dragons](https://en.wikipedia.org/wiki/Here_be_dragons), here be locusts.
 
@@ -23,7 +30,8 @@ Scripts perform the following using [boto](https://github.com/boto/boto) +
  * Executes a script named bootstrap.sh
  * Executes locust in master/slave mode
 
-# requirements
+requirements
+------------
 
 `pip install -r requirements.txt`
 
@@ -42,11 +50,13 @@ As a note, at some point, I'll refactor and wrap the locust install into the
 actual scripts instead of in the sample bootstrap.sh.  For now, just take a
 peek there to see what I mean.
 
-# supported commands
+supported commands
+------------------
 
 (All commands support -h flag)
 
-## create master
+create master
+~~~~~~~~~~~~~
 
 To create a locust master, run the following:
 
@@ -55,7 +65,8 @@ To create a locust master, run the following:
  * -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
  * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master))
 
-## create slave(s)
+create slave(s)
+~~~~~~~~~~~~~~~
 
 To create a locust slave, run the following:
 
@@ -65,13 +76,15 @@ To create a locust slave, run the following:
  * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave))
  * -s is the number of slaves you want to create
 
-## go to master server to start load test
+go to master server to start load test
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `http://<master_ip>:8089/`
 
 * You should see your slaves connected to your master
 
-## shutting down the house
+shutting down the studio
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 `python locust-swarm/swarm.py down master -c ./locust-swarm.cfg`<br/>
 `python locust-swarm/swarm.py down slaves -c ./locust-swarm.cfg`
@@ -80,7 +93,8 @@ or
 
 `python locust-swarm/swarm.py down all -c ./locust-swarm.cfg`
 
-# notes
+notes
+-----
 
 If you're on a Mac and gevent can't build because it doesn't know where the 
 libevent header files are, you either:
@@ -101,7 +115,8 @@ libevent header files are, you either:
   investigate. I usually just bring down the swarm and bring everything back
   up.
 
-# todo
+todo
+----
 
 * Enable `swarm.py up all` command
 * Encapsulate a bit more of the swarm logic into a CommandController. This
