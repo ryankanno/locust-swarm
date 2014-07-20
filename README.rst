@@ -33,7 +33,9 @@ Scripts perform the following using [boto](https://github.com/boto/boto) +
 requirements
 ------------
 
-`pip install -r requirements.txt`
+.. code:: bash
+
+   pip install -r requirements.txt
 
 To run these commands, you'll need to have at least two files in the
 user-specified directory:
@@ -60,7 +62,9 @@ create master
 
 To create a locust master, run the following:
 
-`python locust-swarm/swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/`
+.. code:: bash
+
+   python locust-swarm/swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/
 
  * -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
  * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master))
@@ -70,7 +74,9 @@ create slave(s)
 
 To create a locust slave, run the following:
 
-`python locust-swarm/swarm.py up slaves -c ./locust-swarm.cfg -d ./example/bootstrap-slave/ -s 5`
+.. code:: bash
+
+   python locust-swarm/swarm.py up slaves -c ./locust-swarm.cfg -d ./example/bootstrap-slave/ -s 5
 
  * -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
  * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave))
@@ -79,17 +85,19 @@ To create a locust slave, run the following:
 go to master server to start load test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`http://<master_ip>:8089/`
+.. code:: bash
+
+   http://<master_ip>:8089/
 
 * You should see your slaves connected to your master
 
 shutting down the studio
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-`python locust-swarm/swarm.py down master -c ./locust-swarm.cfg`<br/>
+`python locust-swarm/swarm.py down master -c ./locust-swarm.cfg`
 `python locust-swarm/swarm.py down slaves -c ./locust-swarm.cfg`
 
-or 
+or
 
 `python locust-swarm/swarm.py down all -c ./locust-swarm.cfg`
 
