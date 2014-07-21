@@ -66,8 +66,8 @@ To create a locust master, run the following:
 
    python locust-swarm/swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/
 
- * -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
- * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master))
+* -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
+* -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master))
 
 create slave(s)
 ~~~~~~~~~~~~~~~
@@ -78,9 +78,9 @@ To create a locust slave, run the following:
 
    python locust-swarm/swarm.py up slaves -c ./locust-swarm.cfg -d ./example/bootstrap-slave/ -s 5
 
- * -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
- * -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave))
- * -s is the number of slaves you want to create
+* -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
+* -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave))
+* -s is the number of slaves you want to create
 
 go to master server to start load test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,25 +94,28 @@ go to master server to start load test
 shutting down the studio
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-`python locust-swarm/swarm.py down master -c ./locust-swarm.cfg`
-`python locust-swarm/swarm.py down slaves -c ./locust-swarm.cfg`
+.. code:: bash
+   python locust-swarm/swarm.py down master -c ./locust-swarm.cfg
+   python locust-swarm/swarm.py down slaves -c ./locust-swarm.cfg
 
 or
 
-`python locust-swarm/swarm.py down all -c ./locust-swarm.cfg`
+.. code:: bash
+   python locust-swarm/swarm.py down all -c ./locust-swarm.cfg
 
 notes
 -----
 
-If you're on a Mac and gevent can't build because it doesn't know where the 
+If you're on a Mac and gevent can't build because it doesn't know where the
 libevent header files are, you either:
 
 * Haven't installed them (sudo port install libevent / brew install libevent)
 * Told pip (or whatever installer) where they are. Set CFLAGS environment
   variable and install gevent individually (vs through a pip dependency)
 
-`sudo port install libevent`<br/>
-`CFLAGS="-I /opt/local/include -L /opt/local/lib" pip install gevent`
+.. code:: bash
+    sudo port install libevent
+    CFLAGS="-I /opt/local/include -L /opt/local/lib" pip install gevent
 
 * The locust-swarm.example.cfg uses ami_id=ami-ad3660c4 from alestic.com
   (ubuntu/images/ubuntu-precise-12.04-amd64-server-20131003). At some point,

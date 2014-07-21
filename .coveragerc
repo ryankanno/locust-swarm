@@ -4,4 +4,5 @@ omit =
     */python?.?/*
     */site-packages/nose/*
     */tests/*
+    locust_swarm/providers/__init__.py
     locust_swarm/__init__.py
