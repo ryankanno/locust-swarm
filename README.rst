@@ -7,25 +7,25 @@ locust-swarm
 .. image:: https://coveralls.io/repos/ryankanno/locust-swarm/badge.png
    :target: https://coveralls.io/r/ryankanno/locust-swarm
 
-Forget about [dragons](https://en.wikipedia.org/wiki/Here_be_dragons), here be locusts.
+Forget about `dragons <https://en.wikipedia.org/wiki/Here_be_dragons>`_, here be locusts.
 
-These scripts brings up a [locust](https://github.com/locustio/locust) 
-master/slave cluster in EC2. 
+These scripts brings up a `locust <https://github.com/locustio/locust>`_
+master/slave cluster in EC2.
 
 &lt;disclaimer&gt;
-As a note, you'll be charged **$$** using this. Since you can potentially bring up 
+As a note, you'll be charged **$$** using this. Since you can potentially bring up
 many EC2 nodes, if you don't understand what you're doing, don't run these scripts.
 &lt;/disclaimer&gt;
 
-Scripts perform the following using [boto](https://github.com/boto/boto) + 
-[fabric](https://github.com/fabric/fabric):
+Scripts perform the following using `boto <https://github.com/boto/boto>`_ +
+`fabric <https://github.com/fabric/fabric>`:
 
  * Brings up an EC2 instance-store image
  * Assigns a role-based tag to the instance
  * Creates a security group to expose port 8089 for the locust master and
    authorizes the master/slave cluster to send/receive traffic from one
    another
- * Copies over the contents of a user-specified directory to bootstrap the 
+ * Copies over the contents of a user-specified directory to bootstrap the
    locust master/slave
  * Executes a script named bootstrap.sh
  * Executes locust in master/slave mode
@@ -44,7 +44,7 @@ user-specified directory:
  * locustfile.py (your load test file)
 
 The fabric scripts automatically will execute bootstrap.sh to run things like 
-apt-get update, etc. Check out the included sample [bootstrap.sh](https://github.com/ryankanno/locust-swarm/blob/master/example/bootstrap-slave/bootstrap.sh)
+apt-get update, etc. Check out the included sample `bootstrap.sh <https://github.com/ryankanno/locust-swarm/blob/master/example/bootstrap-slave/bootstrap.sh>`_
 The script will automatically start locust in a master or slave configuration
 so it'll need your load test in a file called `locustfile.py`.
 
@@ -66,8 +66,8 @@ To create a locust master, run the following:
 
    python locust-swarm/swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/
 
-* -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
-* -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master))
+* -c is a path to your configuration file (`sample <https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg>`_)
+* -d is a path to a directory containing your bootstrap.sh/locustfile (`sample <https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master>`_)
 
 create slave(s)
 ~~~~~~~~~~~~~~~
@@ -78,8 +78,8 @@ To create a locust slave, run the following:
 
    python locust-swarm/swarm.py up slaves -c ./locust-swarm.cfg -d ./example/bootstrap-slave/ -s 5
 
-* -c is a path to your configuration file ([sample](https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg))
-* -d is a path to a directory containing your bootstrap.sh/locustfile ([sample](https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave))
+* -c is a path to your configuration file (`sample <https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg`_)
+* -d is a path to a directory containing your bootstrap.sh/locustfile (`sample <https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave`_)
 * -s is the number of slaves you want to create
 
 go to master server to start load test
