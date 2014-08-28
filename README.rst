@@ -18,7 +18,7 @@ many EC2 nodes, if you don't understand what you're doing, don't run these scrip
 &lt;/disclaimer&gt;
 
 Scripts perform the following using `boto <https://github.com/boto/boto>`_ +
-`fabric <https://github.com/fabric/fabric>`:
+`fabric <https://github.com/fabric/fabric>`_:
 
  * Brings up an EC2 instance-store image
  * Assigns a role-based tag to the instance
@@ -66,7 +66,7 @@ To create a locust master, run the following:
 
    python locust-swarm/swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/
 
-* -c is a path to your configuration file (`sample <https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg>`_)
+* -c is a path to your configuration file ( `sample <https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg>`_ )
 * -d is a path to a directory containing your bootstrap.sh/locustfile (`sample <https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master>`_)
 
 create slave(s)
