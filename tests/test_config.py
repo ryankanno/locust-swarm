@@ -11,10 +11,14 @@ from locust_swarm.config import DEFAULT_SLAVE_BOOTSTRAP_DIR
 from locust_swarm.config import DEFAULT_NUM_SLAVES
 from locust_swarm.config import DEFAULT_CUSTOM_TAG_NAME
 from locust_swarm.config import get_config
+import os
 import unittest
 
 
 class TestConfig(unittest.TestCase):
+
+    def setUp(self):
+        self.cwd = os.path.dirname(os.path.realpath(__file__))
 
     def test_default_variables(self):
         eq_('locust-swarm.cfg', DEFAULT_CFG_FILEPATH)
@@ -30,6 +34,6 @@ class TestConfig(unittest.TestCase):
         get_config('/f/a/k/e.config')
 
     def test_get_config_with_valid_config_path_returns_config(self):
-        get_config('/f/a/k/e.config')
+        get_config(os.path.join(self.cwd, 'data', 'test-locust-swarm.cfg'))
 
 # vim: filetype=python
