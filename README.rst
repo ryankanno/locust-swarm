@@ -64,7 +64,7 @@ To create a locust master, run the following:
 
 .. code:: bash
 
-   python locust-swarm/swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/
+   python bin/locust-swarm.py up master -c ./locust-swarm.cfg -d ./example/bootstrap-master/
 
 * -c is a path to your configuration file ( `sample <https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg>`_ )
 * -d is a path to a directory containing your bootstrap.sh/locustfile (`sample <https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-master>`_)
@@ -76,7 +76,7 @@ To create a locust slave, run the following:
 
 .. code:: bash
 
-   python locust-swarm/swarm.py up slaves -c ./locust-swarm.cfg -d ./example/bootstrap-slave/ -s 5
+   python bin/locust-swarm.py up slaves -c ./locust-swarm.cfg -d ./example/bootstrap-slave/ -s 5
 
 * -c is a path to your configuration file (`sample <https://github.com/ryankanno/locust-swarm/blob/master/locust-swarm.example.cfg`_)
 * -d is a path to a directory containing your bootstrap.sh/locustfile (`sample <https://github.com/ryankanno/locust-swarm/tree/master/example/bootstrap-slave`_)
@@ -95,13 +95,13 @@ shutting down the studio
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
-   python locust-swarm/swarm.py down master -c ./locust-swarm.cfg
-   python locust-swarm/swarm.py down slaves -c ./locust-swarm.cfg
+   python bin/locust-swarm.py down master -c ./locust-swarm.cfg
+   python bin/locust-swarm.py down slaves -c ./locust-swarm.cfg
 
 or
 
 .. code:: bash
-   python locust-swarm/swarm.py down all -c ./locust-swarm.cfg
+   python bin/locust-swarm.py down all -c ./locust-swarm.cfg
 
 notes
 -----
